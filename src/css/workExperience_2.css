@@ -1,0 +1,289 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@page {
+	size: A4;
+	margin: 18mm 16mm;
+}
+
+body:has(.work-experience-v2) {
+	padding: 0;
+	max-width: none;
+	background: #e5e5e5;
+}
+
+.work-experience-v2 {
+	width: 210mm;
+	min-height: 297mm;
+	margin: 20px auto;
+	background: #fff;
+	padding: 8mm 16mm;
+	box-shadow: 0 2px 12px rgba(0, 0, 0, 0.12);
+	color: #222;
+	font-size: 9pt;
+	-webkit-print-color-adjust: exact;
+	print-color-adjust: exact;
+}
+
+@media print {
+	body:has(.work-experience-v2) {
+		background: #fff;
+	}
+	.work-experience-v2 {
+		margin: 0;
+		box-shadow: none;
+	}
+}
+
+.work-experience-v2 ul {
+	margin-top: 0;
+	padding-left: 0;
+}
+
+/* ---------- Header ---------- */
+.work-experience-v2 .header {
+	display: grid;
+	grid-template-columns: 1fr auto;
+	gap: 24px;
+	align-items: start;
+	border-bottom: 2px solid #1e3a5f;
+	padding-bottom: 12px;
+}
+
+.work-experience-v2 .header .header-info {
+	display: flex;
+	align-items: flex-end;
+	gap: 10px;
+}
+
+.work-experience-v2 .header h1 {
+	font-size: 28pt;
+	font-weight: 900;
+	letter-spacing: 0.02em;
+	line-height: 1.1;
+	color: #1e3a5f;
+	margin: 0;
+}
+
+.work-experience-v2 .header .role {
+	font-size: 9pt;
+	letter-spacing: 0.18em;
+	color: #666;
+	margin-top: 10px;
+	font-weight: 500;
+}
+
+.work-experience-v2 .header .contact {
+	font-size: 8.5pt;
+	color: #444;
+	line-height: 1.7;
+	text-align: right;
+}
+
+.work-experience-v2 .header .contact p {
+	margin: 0;
+}
+
+/* ---------- Dividers ---------- */
+.work-experience-v2 hr {
+	border: none;
+	border-top: 1px solid #d0d0d0;
+	margin: 4px 0 12px 0;
+}
+
+/* ---------- Section headings ---------- */
+.work-experience-v2 h2 {
+	font-size: 12pt;
+	font-weight: 700;
+	letter-spacing: 0.22em;
+	color: #1e3a5f;
+	margin: 32px 0 14px 0;
+	padding: 0 0 0 8px;
+	border-bottom: none;
+	border-left: 3px solid #1e3a5f;
+}
+
+/* ---------- Experience: company entry ---------- */
+.work-experience-v2 .experience .entry {
+	margin-top: 18px;
+	margin-bottom: 10px;
+}
+
+.work-experience-v2 .experience .company {
+	display: flex;
+	align-items: center;
+	gap: 14px;
+}
+
+.work-experience-v2 .experience .company-logo {
+	height: 64px;
+	width: auto;
+	flex-shrink: 0;
+}
+
+.work-experience-v2 .experience .company-info {
+	flex: 1;
+	min-width: 0;
+}
+
+.work-experience-v2 .experience h3 {
+	font-size: 11pt;
+	font-weight: 700;
+	color: #222;
+	padding: 0;
+	margin: 0;
+}
+
+.work-experience-v2 .experience .job {
+	font-size: 8.5pt;
+	color: #555;
+	margin-top: 2px;
+}
+
+.work-experience-v2 .experience .company-info .period {
+	font-size: 8pt;
+	color: #888;
+	margin-top: 1px;
+	line-height: 1.4;
+}
+
+.work-experience-v2 .experience .projects {
+	padding-left: 0;
+	margin-top: 6px;
+}
+
+/* ---------- Project block ---------- */
+.work-experience-v2 .experience .project {
+	margin-top: 26px;
+	padding-top: 14px;
+	border-top: 1px solid #e6e6e6;
+}
+
+.work-experience-v2 .experience .project:first-child {
+	border-top: none;
+	padding-top: 0;
+}
+
+.work-experience-v2 .experience .project-head {
+	display: flex;
+	justify-content: space-between;
+	align-items: baseline;
+	gap: 12px;
+}
+
+.work-experience-v2 .experience .project-head h3 {
+	font-size: 13pt;
+	font-weight: 800;
+	color: #1e3a5f;
+	padding: 0;
+	margin: 0;
+}
+
+.work-experience-v2 .experience .project-head .period {
+	font-size: 8.5pt;
+	color: #888;
+	white-space: nowrap;
+	margin: 0;
+}
+
+.work-experience-v2 .experience .project .org {
+	font-size: 8pt;
+	color: #777;
+	margin-top: 2px;
+	letter-spacing: 0.04em;
+}
+
+.work-experience-v2 .experience .project .description {
+	font-size: 8.5pt;
+	color: #555;
+	margin-top: 6px;
+	line-height: 1.6;
+}
+
+.work-experience-v2 .experience .project ul {
+	margin-top: 4px;
+}
+
+/* ---------- Tags ---------- */
+.work-experience-v2 .tags {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 4px;
+	padding: 0;
+	margin: 8px 0 0 0;
+	list-style: none;
+}
+
+.work-experience-v2 .tags li {
+	background-color: #e6edf5;
+	color: #1e3a5f;
+	font-size: 7.5pt;
+	font-weight: 500;
+	padding: 2px 8px;
+	border-radius: 4px;
+	margin: 0;
+	margin-left: 0;
+	text-indent: 0;
+	line-height: 1.4;
+	list-style: none;
+}
+
+.work-experience-v2 .tags li::before {
+	display: none;
+}
+
+/* ---------- Bullets (default lists in section bodies) ---------- */
+.work-experience-v2 li {
+	font-size: 8.5pt;
+	line-height: 1.7;
+	color: #333;
+	margin-top: 5px;
+	margin-left: 28px;
+	text-indent: -8px;
+	list-style: inside;
+}
+
+.work-experience-v2 li::before {
+	background-color: #1e3a5f;
+}
+
+/* ---------- Section labels (문제 상황 / 역할 및 기여 / ...) ---------- */
+.work-experience-v2 .section-label {
+	font-size: 9.5pt;
+	font-weight: 700;
+	color: #1e3a5f;
+	margin: 16px 0 6px 0;
+	padding: 0 0 0 8px;
+	border-left: 2px solid #1e3a5f;
+	background-color: #e6edf56b;
+	letter-spacing: 0.04em;
+}
+
+/* ---------- Challenges (도전과 해결) ---------- */
+.work-experience-v2 .challenges p:has(> strong) {
+	margin-top: 22px;
+	margin-bottom: 4px;
+	font-size: 9.5pt;
+	color: #1e3a5f;
+}
+
+.work-experience-v2 .challenges > p:first-child:has(> strong) {
+	margin-top: 8px;
+}
+
+.work-experience-v2 .challenges > ul > li {
+	margin-top: 10px;
+}
+
+.work-experience-v2 .challenges > ul > li > ul > li {
+	margin-top: 3px;
+}
+
+/* ---------- Tech summary line ---------- */
+.work-experience-v2 .tech-summary {
+	font-size: 8.5pt;
+	color: #555;
+	line-height: 1.6;
+	margin-top: 4px;
+}

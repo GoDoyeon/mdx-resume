@@ -1,0 +1,165 @@
+import '../css/workExperience_2.css'
+import selvasLogo from '../assets/selvasai-logo.jpeg'
+
+<div className="work-experience-v2">
+
+<header className="header">
+
+<div>
+
+# 고도연
+
+<p className="role">FRONTEND DEVELOPER · WORK EXPERIENCE</p>
+
+</div>
+
+</header>
+
+<section className="experience">
+
+<div className="entry">
+
+<div className="company">
+	<img src={selvasLogo} alt="Selvas AI" className="company-logo" />
+	<div className="company-info">
+		<h3>(주)셀바스에이아이</h3>
+		<p className="job">Frontend Developer</p>
+		<p className="period">2021. 09. ~ 재직 중</p>
+	</div>
+</div>
+
+<div className="projects">
+
+<div className="project">
+
+<div className="project-head">
+	<h3>SelvasCRM_Mediana</h3>
+	<p className="period">2025. 01. ~ 2026. 01. (약 13개월)</p>
+</div>
+
+<p className="org">Selvas AI · MIS Lab</p>
+
+<p className="description">
+	51개 비즈니스 도메인을 커버하는 사내 CRM/ERP 백오피스 시스템. 주문/발주 관리,
+	OKR 성과 평가, 역량 관리, 업무 추적 등 기업 운영 전반의 데이터를 단일
+	시스템으로 통합.
+</p>
+
+<h4 className="section-label">문제 상황</h4>
+
+- 주문 품목을 한 건씩 수동으로 입력하고, 주문 분할 시 원본 수량 감소와 신규 주문 생성을 별도 처리하는 흐름이 결합되어 담당자의 업무 부담이 크고 휴먼 오류가 빈번했습니다.
+- Proforma Invoice·견적서를 외부 도구(Excel/Word)로 별도 작성해 시스템과 문서 간 데이터가 어긋나고, 발행 이력을 추적할 수 없는 구조적 한계가 있었습니다.
+- 업무 항목이 OKR·영업기회·고객사·프로젝트에 분산되어 "이 업무가 어떤 목표에 기여하는가"를 추적할 수 없는 데이터 구조였습니다.
+- 역량·성과 데이터가 텍스트 목록으로만 존재해 개인·팀 단위 역량 수준을 직관적으로 비교·파악하기 어려웠습니다.
+
+<h4 className="section-label">역할 및 기여</h4>
+
+- 2인 개발팀에서 신규 모듈 12개+를 단독 설계·구현하며 주문/발주, 업무 관리, 통화/환율 관리, 생산계획, 재고 관리, 성과·역량, 보상계획 시각화 전 영역을 주도하였습니다.
+- 주문/발주 백오피스 — 엑셀 일괄 업로드, 주문 분할 양방향 동기화, HTML→PDF→Base64 클라이언트 측 문서 발행 파이프라인을 단독 구축했습니다.
+- 업무 관리 Trace Link 구조 — 업무 항목을 허브 엔티티로 두고 5종 엔티티를 N:M으로 연결하는 데이터 모델을 설계해 목표-업무 추적 가능 구조를 구현했습니다.
+- 성과·역량 시각화 — Plotly.js 기반 5종 차트(개인 레이더·다중 비교 레이더·그룹 바·단일 바)를 시각화 컴포넌트를 데이터 가공 로직과 분리된 구조로 설계해 라이브러리 교체 시 영향 범위를 최소화 하였습니다.
+
+<h4 className="section-label">도전과 해결</h4>
+
+- **주문/발주 백오피스 클라이언트 측 파이프라인 구축**
+  - 문제: 주문 품목은 한 건씩 수동 입력해야 했고, 주문 분할 시 원본 수량 감소와 신규 주문 생성이 별도 흐름으로 분리되어 사용자가 한쪽 값을 수정하면 다른 쪽과 어긋날 수 있는 구조였습니다. 또한 Proforma Invoice·견적서가 Excel/Word로 별도 작성되어 시스템 데이터와 문서 내용이 불일치하고, 발행 이력이 시스템 외부에 흩어지는 문제가 있었습니다.
+  - 해결: 엑셀 업로드 기반 다건 품목 등록 기능을 구축해 수동 입력 중심 흐름을 일괄 처리 방식으로 전환하였고, 주문 분할 시 원본·신규 데이터를 반응형 상태로 동기화해 수량 불일치 이슈를 0건으로 감소했습니다. 문서 생성·수정·발행을 시스템 내에서 처리하는 파이프라인을 구축해 Excel/Word 외부 의존을 제거하였고, 발행 이력을 DB 기준으로 관리하도록 구조화해 문서 추적 및 재발행을 추적 가능하게 만들었습니다.
+- **업무 관리 Trace Link 데이터 모델 설계**
+  - 문제: 업무 항목이 OKR·영업기회·고객사·프로젝트에 분산되어 "이 업무가 어떤 목표에 기여하는가"를 추적할 수 없는 구조였고, 즐겨찾기 토글 시 API 응답 대기 동안 UI가 멈추는 체감 지연이 있었습니다. OKR과 Key Result는 상호 배타적으로 선택되어야 하는 규칙이 있었으나 사용자가 잘못된 조합을 선택할 가능성이 열려 있었습니다.
+  - 해결: 분산되어 있던 업무 흐름을 단일 트래킹 구조로 통합하였고 즐겨찾기 토글에는 낙관적 업데이트 패턴을 적용해 UI를 먼저 반영한 뒤 API를 호출하도록 흐름을 바꿔 체감 응답 속도를 개선했고, OKR-Key Result 상호 배타 규칙은 컴포넌트 레벨에서 강제해 사용자가 규칙을 위반할 수 없는 UI 제약으로 전환했습니다.
+- **다차원 성과·역량 시각화 컴포넌트 설계**
+  - 문제: 역량 데이터가 텍스트 목록으로만 존재해 팀원 간 비교가 불가능했고, 시각화 라이브러리 변경 가능성을 고려할 때 데이터 가공 로직과 렌더링 로직이 결합되면 라이브러리 교체 시 수정 범위가 전체 시각화 영역으로 확산될 위험이 있었습니다.
+  - 해결: 개인·팀 단위 역량 비교가 가능한 5종 차트 제공으로 텍스트 기반 평가를 데이터 기반 비교로 전환하였고, 정규화된 데이터 인터페이스를 props로 받는 구조로 가공 로직과 렌더링 로직을 완전히 분리했습니다. 카테고리 → 항목 → 경험으로 이어지는 3계층 역량 모델은 도메인 타입 파일로 정의해 컴파일 타임에 구조를 강제하고, 시각화 컴포넌트가 도메인 의미와 분리된 채 데이터 형태에만 의존하도록 경계를 정리했습니다.
+
+<h4 className="section-label">결과 및 성과</h4>
+
+- 엑셀 업로드로 다건 품목 일괄 등록을 지원하고, 원본·신규 패널 양방향 동기화로 주문 분할 시 발생할 수 있는 수량 불일치 오류를 구조적으로 차단했습니다.
+- 문서 발행 흐름을 시스템 내부에서 완결지어 Excel/Word 외부 의존을 제거했고, Base64 저장으로 발행 이력 추적과 재발행을 가능하게 만들었습니다.
+- 타입·API·스토어가 동일한 4계층 패턴을 따르도록 표준화하여, 신규 도메인 추가 시 기존 도메인을 복사·수정하는 방식으로 빠르게 확장할 수 있는 구조를 마련했습니다.
+- 5종 시각화 컴포넌트로 개인·팀 역량 수준을 직관적으로 비교 가능하게 전환하여, 텍스트 목록 기반 평가에서 데이터 기반 비교 체계로 옮겨갈 수 있는 기반을 제공했습니다.
+
+<h4 className="section-label">기술스택</h4>
+
+<div className="tags">
+<ul className="tags">
+	<li>Vue 3</li>
+	<li>TypeScript</li>
+	<li>Pinia</li>
+	<li>Quasar</li>
+</ul>
+
+</div>
+</div>
+
+<div className="project">
+
+<div className="project-head">
+	<h3>Neuro</h3>
+	<p className="period">2025. 12. ~ 현재</p>
+</div>
+
+<p className="org">Selvas AI · Orchestration Lab</p>
+
+<p className="description">
+	파이프라인·온톨로지·자동화 등 복수 도메인을 통합하는 엔터프라이즈 SaaS 플랫폼.
+	12개 앱 + 16개 공유 패키지 규모의 모노레포에서 프론트엔드 아키텍처 설계 및
+	핵심 앱 구축 담당.
+</p>
+
+<h4 className="section-label">문제 상황</h4>
+
+- 11개 SPA가 병렬로 개발되며 공통 인프라(API, 인증, i18n 등)가 앱별로 중복 구현되고, 신규 앱 생성 시 동일 셋업에 2~3일이 소요되는 비효율이 발생했습니다.
+- 보안 강화를 위해 Turborepo로 분리된 11개 SPA의 인증 구조를 HttpOnly 쿠키 기반으로 통합해야 했으며, 각 앱이 서로 다른 401 처리/refresh 로직을 사용하고 있어, 세션 만료 및 강제 로그아웃 사유가 일관되게 전달되지 않는 문제가 있었습니다.
+- prefix 트리 기반으로 설계된 React Query key 구조가 invalidation 범위를 도메인 의도보다 넓게 묶어, 상태 변경 시 불필요한 데이터 재요청이 발생하고 캐시 영향 범위를 예측하기 어려운 구조적 결함이 있었습니다. 해당 문제는 mock-first 단계에서는 드러나지 않다가 실 API 전환 이후 확인되었습니다.
+
+<h4 className="section-label">역할 및 기여</h4>
+
+- 모노레포 레이어 경계 재설계 — Base → Feature → App 3계층 단방향 의존 아키텍처 + 공통 인프라 8개 패키지(api-client, auth, query, i18n, dayjs, ui, types, locales) 재구성으로, 11개 SPA가 동일한 import 계약을 따르도록 모노레포 구조를 표준화했습니다.
+- 쿠키 기반 인증으로 전환하며 refresh/에러 처리 흐름을 표준화해 세션 상태 전달 일관성을 확보하였습니다.
+- 11개 SPA에 분산된 인증/401 처리 로직을 통합하여 전사 단일 인증 규약을 구축하고 중복 로직을 제거하였습니다.
+- Ontology Manager - Settings Access Control 도메인을 설계하고, React Query key 구조를 재정의하여 캐시 invalidation 범위를 도메인 단위로 제어 가능한 구조로 전환했습니다.
+- 온보딩 · Admin · Ontology Manager · Projects 4개 SPA 도메인을 마크업 → API 연동 → 라이프사이클 UI 까지 단독으로 신규 구축하였습니다.
+
+<h4 className="section-label">도전과 해결</h4>
+
+- **모노레포 환경에서 단방향 의존 규칙과 공통 인프라 패키지화를 통해 구조 안정성을 확보하고 신규 앱 셋업 시간을 대폭 단축**
+  - 문제: 인증·API·i18n·Query·UI 등 공통 인프라가 앱별로 중복되며 컨벤션이 분산되었고, 신규 앱 추가 시 라우팅·i18n·QueryClient·빌드 설정 등을 매번 수동으로 구성해야 해 2~3일의 셋업 비용이 발생했으며, 패키지 간 의존을 통제하지 않을 경우 packages → apps 역참조나 잘못된 자산 소속 등 구조 붕괴 위험이 존재했습니다.
+  - 해결: import 허용/금지 규칙을 정의해 apps → packages 단방향 의존을 강제하고, 인증·API·상태관리·i18n·UI 등 핵심 인프라를 8개 공유 패키지로 수렴했습니다. 또한 app-template 기반 보일러플레이트와 pnpm run gen:app 생성 스크립트를 도입해 라우팅·i18n·QueryClient·Vite 설정을 자동화했으며, 아키텍처·네이밍·Git·API·PR·테스트 등 12개 규칙을 문서화하여 코드 리뷰 시 단일 기준으로 활용되도록 정착시켰습니다. 이 중 Git Branch 전략, Pull Request 워크플로우, i18n 처리, 아이콘 규칙, 테스트(TDD, Vitest), 다크모드 가이드를 직접 기안하고 적용했습니다.
+- **SPA 환경 공통 인증 아키텍처 재설계 및 쿠키 기반 마이그레이션**
+  - 문제: 동일 axios 인스턴스로 refresh를 호출하면 응답 인터셉터가 재진입하여 순환 호출이 발생했고, 모든 401을 refresh 후보로 처리하는 구조에서는 강제 로그아웃 사유(SESSION_REVOKED / TOKEN_REUSE_DETECTED / REFRESH_TOKEN_EXPIRED)가 일반 세션 만료로 덮여 사라졌으며, 미인증 시 별도 SPA로 window.location.href 리다이렉트가 일어나 React 상태로 사유를 다음 화면까지 운반할 수 없는 구조적 한계가 있었습니다.
+  - 해결: refresh 호출만 fetch + credentials: include로 분리하고 refreshUrl을 외부 주입 옵션으로 두어 인터셉터 체인에서 격리했고, 게이트웨이 응답을 GatewayErrorResponse / ScgErrorCode로 모델링해 SKIP_REFRESH_CODES는 refresh를 건너뛰고 컨텍스트를 onUnauthorized(context)로 전달하도록 인터페이스를 확장했으며, sessionStorage(auth_message)를 SPA 간 사유 운반 채널로 합의하여 onboarding 진입 시 toast로 노출하도록 흐름을 통일했습니다.
+- **React Query key 구조 재설계를 통해 invalidation 범위를 도메인 의도에 맞게 정렬**
+  - 문제: mock 데이터 기준으로 설계된 settingsKeys.groups() prefix 트리가 실 API 전환 이후 한 번의 invalidate로 Object Type 그래프 조회, Subject CRUD, Property 마스킹, 그룹 멤버 등 하위 캐시까지 함께 무효화하며, 도메인 단위 캐시 제어가 불가능한 상태였습니다.
+  - 해결: prefix 기반 query key 구조를 도메인 단위로 평탄화하고, 좁은 범위 무효화에는 exact: true를 적용해 자식 키로의 전파를 차단했습니다. 또한 groupUsers를 groups() prefix 밖(settingsKeys.all 하위)으로 분리해 그룹 리스트와 멤버 캐시를 독립된 축으로 재구성했습니다.
+
+<h4 className="section-label">결과 및 성과</h4>
+
+- 신규 앱 셋업 시간을 2~3일 → 30분 이내로 단축하여 초기 개발 비용을 크게 절감했습니다.
+- 11개 SPA의 인증/401 처리 로직을 공통화하여 중복 구현 제거 및 전사 단일 인증 규약을 정립함으로써 인증 로직 복잡도 감소 및 유지보수 용이성을 개선했습니다.
+- 상태 변경 시 불필요한 데이터 재요청을 제거하고, 캐시 무효화 범위를 도메인 단위로 제한해 데이터 흐름을 예측 가능한 구조로 개선했습니다. 이후 도메인 확장 시 동일한 query key 설계 및 invalidation 기준을 재사용할 수 있는 구조를 마련했습니다.
+- Claude Code 커스텀 Skill을 6종 도입해 코드 리뷰·문서화·테스트 작성을 자동화하고, PR 품질(96→660자) 향상·릴리즈 노트 생성(0→48건)·테스트 커밋 비율(2.9%→19.9%) 개선하였습니다.
+
+<h4 className="section-label">기술스택</h4>
+
+<div className="tags">
+	<ul className="tags">
+		<li>React 18</li>
+		<li>TypeScript</li>
+		<li>Turborepo</li>
+		<li>TanStack Query</li>
+		<li>Zustand</li>
+		<li>Ant Design</li>
+		<li>Tailwind CSS v4</li>
+		<li>Vitest</li>
+	</ul>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+</div>
