@@ -7,18 +7,18 @@
 	margin: 18mm 16mm;
 }
 
-body:has(.resume-v2) {
+body:has(.resume-v3) {
 	padding: 0;
 	max-width: none;
 	background: #e5e5e5;
 }
 
-.resume-v2 {
+.resume-v3 {
 	width: 210mm;
 	min-height: 297mm;
-	margin: 20px auto;
+	margin: 14px auto;
 	background: #fff;
-	padding: 8mm 16mm;
+	padding: 8mm 8mm;
 	box-shadow: 0 2px 12px rgba(0, 0, 0, 0.12);
 	color: #222;
 	font-size: 9pt;
@@ -27,43 +27,48 @@ body:has(.resume-v2) {
 }
 
 @media print {
-	body:has(.resume-v2) {
+	body:has(.resume-v3) {
 		background: #fff;
 	}
-	.resume-v2 {
+	.resume-v3 {
 		margin: 0;
 		box-shadow: none;
 	}
 }
 
 /* Reset list styles for this scope */
-.resume-v2 ul {
+.resume-v3 ul {
 	margin-top: 0;
 	padding-left: 0;
 }
 
 /* ---------- Header ---------- */
-.resume-v2 .header {
+.resume-v3 .header {
 	border-bottom: 2px solid #1e3a5f;
 	padding-bottom: 16px;
 }
 
-.resume-v2 .header .header-row {
+.resume-v3 .header .header-row {
 	display: flex;
 	align-items: center;
 	gap: 24px;
 }
 
-.resume-v2 .header .profile {
+.resume-v3 .header .profile {
 	width: 140px;
 	height: 140px;
 	border-radius: 50% 12% 50% 50%;
-	border: 2px solid #e6edf5;
+	/* border-radius: 50%; 이미지를 동그랗게 */
+
+	/* 안쪽은 진한 파란색 선, 바깥쪽은 연한 파란색 선 */
+	box-shadow:
+		0 0 0 2px #1e3a5f,
+		/* 1. 안쪽 진한 선 (두께 4px) */ 0 0 0 8px #eff6ff; /* 2. 바깥쪽 연한 선 (두께 16px) */
 	object-fit: cover;
 	flex-shrink: 0;
 }
 
-.resume-v2 .header h1 {
+.resume-v3 .header h1 {
 	font-size: 22pt;
 	font-weight: 900;
 	letter-spacing: 0.01em;
@@ -72,7 +77,7 @@ body:has(.resume-v2) {
 	margin: 0;
 }
 
-.resume-v2 .header .role {
+.resume-v3 .header .role {
 	font-size: 9pt;
 	letter-spacing: 0.18em;
 	color: #666;
@@ -80,7 +85,7 @@ body:has(.resume-v2) {
 	font-weight: 500;
 }
 
-.resume-v2 .header .contact {
+.resume-v3 .header .contact {
 	display: flex;
 	flex-wrap: wrap;
 	align-items: center;
@@ -92,29 +97,29 @@ body:has(.resume-v2) {
 	border-top: 1px solid #e2e6ec;
 }
 
-.resume-v2 .header .contact a {
+.resume-v3 .header .contact a {
 	color: #1e3a5f;
 	text-decoration: none;
 	font-weight: 600;
 }
 
-.resume-v2 .header .contact a:hover {
+.resume-v3 .header .contact a:hover {
 	text-decoration: underline;
 }
 
-.resume-v2 .header .contact .sep {
+.resume-v3 .header .contact .sep {
 	color: #c8cdd4;
 }
 
 /* ---------- Dividers ---------- */
-.resume-v2 hr {
+.resume-v3 hr {
 	border: none;
 	border-top: 1px solid #d0d0d0;
 	margin: 4px 0 12px 0;
 }
 
 /* ---------- Section headings ---------- */
-.resume-v2 h2 {
+.resume-v3 h2 {
 	font-size: 12pt;
 	font-weight: 700;
 	letter-spacing: 0.22em;
@@ -127,14 +132,14 @@ body:has(.resume-v2) {
 }
 
 /* ---------- About ---------- */
-.resume-v2 .about .about-text {
+.resume-v3 .about .about-text {
 	font-size: 8.5pt;
 	line-height: 1.7;
 	color: #444;
 	margin: 0;
 }
 
-.resume-v2 .about .about-text .bold-text {
+.resume-v3 .about .about-text .bold-text {
 	display: block;
 	font-size: 10pt;
 	font-weight: 700;
@@ -143,21 +148,21 @@ body:has(.resume-v2) {
 	margin-bottom: 10px;
 }
 
-.resume-v2 .about .about-text > span {
+.resume-v3 .about .about-text > span {
 	display: block;
 	margin-bottom: 6px;
 }
 
-.resume-v2 .about .about-text > span:last-of-type {
+.resume-v3 .about .about-text > span:last-of-type {
 	margin-bottom: 0;
 }
 
 /* ---------- Experience ---------- */
-.resume-v2 .experience .entry {
+.resume-v3 .experience .entry {
 	margin-bottom: 10px;
 }
 
-.resume-v2 .experience h3 {
+.resume-v3 .experience h3 {
 	font-size: 11pt;
 	font-weight: 700;
 	color: #222;
@@ -165,61 +170,67 @@ body:has(.resume-v2) {
 	margin: 0;
 }
 
-.resume-v2 .experience .job {
+.resume-v3 .experience .job {
 	font-size: 8.5pt;
 	color: #555;
 	margin-top: 2px;
 }
 
-.resume-v2 .experience .entry > .period {
+.resume-v3 .experience .entry > .period {
 	font-size: 8pt;
 	color: #888;
 	margin-top: 1px;
 	line-height: 1.4;
 }
 
-.resume-v2 .experience .projects {
+.resume-v3 .experience .projects {
 	padding-left: 0;
-	margin-top: 6px;
 }
 
-.resume-v2 .experience .project {
-	margin-top: 22px;
+.resume-v3 .experience .project {
+	margin-bottom: 22px;
 }
 
-.resume-v2 .experience .project-head {
+.resume-v3 .experience .project-head {
 	display: flex;
 	justify-content: space-between;
 	align-items: baseline;
 	gap: 12px;
 }
 
-.resume-v2 .experience .project-head h4 {
+.resume-v3 .experience .project-head h4 {
 	font-size: 10pt;
 	font-weight: 700;
 	color: #222;
 	padding: 0;
 	margin: 0;
+	display: flex;
+	align-items: center;
+	gap: 4px;
 }
 
-.resume-v2 .experience .project-head .period {
+/* .resume-v3 .experience .project-head h4 a:hover {
+	text-decoration: underline;
+} */
+
+.resume-v3 .experience .project-head .period {
 	font-size: 8pt;
 	color: #888;
 	white-space: nowrap;
 	margin: 0;
 }
 
-.resume-v2 .experience .project .description {
+.resume-v3 .experience .project .description {
 	font-size: 8pt;
 	color: #666;
 	margin-top: 3px;
 }
 
-.resume-v2 .experience .project ul {
+.resume-v3 .experience .project ul {
 	margin-top: 4px;
 }
 
-.resume-v2 .tags {
+.resume-v3 .tags {
 	display: flex;
 	flex-wrap: wrap;
 	gap: 4px;
@@ -228,7 +239,7 @@ body:has(.resume-v2) {
 	list-style: none;
 }
 
-.resume-v2 .tags li {
+.resume-v3 .tags li {
 	background-color: #e6edf5;
 	color: #1e3a5f;
 	font-size: 7.5pt;
@@ -242,11 +253,11 @@ body:has(.resume-v2) {
 	list-style: none;
 }
 
-.resume-v2 .tags li::before {
+.resume-v3 .tags li::before {
 	display: none;
 }
 
-.resume-v2 li {
+.resume-v3 li {
 	font-size: 8pt;
 	line-height: 1.7;
 	color: #333;
@@ -256,32 +267,32 @@ body:has(.resume-v2) {
 	list-style: inside;
 }
 
-.resume-v2 li::before {
+.resume-v3 li::before {
 	background-color: #1e3a5f;
 }
 
 /* ---------- Education / Certifications ---------- */
-.resume-v2 .experience .entry,
-.resume-v2 .education .entry,
-.resume-v2 .certifications .entry {
+.resume-v3 .experience .entry,
+.resume-v3 .education .entry,
+.resume-v3 .certifications .entry {
 	display: grid;
 	grid-template-columns: 36mm 1fr;
 	gap: 6mm;
 	margin-bottom: 8px;
 }
 
-.resume-v2 .experience .entry > .period,
-.resume-v2 .education .entry > .period,
-.resume-v2 .certifications .entry > .period {
+.resume-v3 .experience .entry > .period,
+.resume-v3 .education .entry > .period,
+.resume-v3 .certifications .entry > .period {
 	font-size: 8pt;
 	color: #666;
 	padding-top: 2px;
 	line-height: 1.4;
 }
 
-.resume-v2 .experience h3,
-.resume-v2 .education h3,
-.resume-v2 .certifications h3 {
+.resume-v3 .experience h3,
+.resume-v3 .education h3,
+.resume-v3 .certifications h3 {
 	font-size: 10pt;
 	font-weight: 700;
 	color: #222;
@@ -289,7 +300,7 @@ body:has(.resume-v2) {
 	margin: 0;
 }
 
-.resume-v2 .details {
+.resume-v3 .details {
 	font-size: 8pt;
 	color: #555;
 	margin-top: 2px;
@@ -297,41 +308,54 @@ body:has(.resume-v2) {
 }
 
 /* ---------- Skills ---------- */
-.resume-v2 .skills .tags {
+.resume-v3 .skills .tags {
 	gap: 6px;
 	margin-top: 0;
 }
 
-.resume-v2 .skills .tags li {
+.resume-v3 .skills .tags li {
 	font-size: 8.5pt;
 	padding: 3px 10px;
 }
 
 /* ---------- Challenges ---------- */
 /* ---------- Challenges (도전과 해결) ---------- */
-.resume-v2 .challenges p:has(> strong) {
+.resume-v3 .challenges p:has(> strong) {
 	margin-top: 22px;
 	margin-bottom: 4px;
 	font-size: 9.5pt;
 	color: #1e3a5f;
 }
 
-.resume-v2 .challenges > p:first-child:has(> strong) {
+.resume-v3 .challenges > p:first-child:has(> strong) {
 	margin-top: 8px;
 }
 
-.resume-v2 .challenges > ul > li {
+.resume-v3 .challenges > ul > li {
 	margin-top: 10px;
 }
 
-.resume-v2 .challenges > ul > li > ul > li {
+.resume-v3 .challenges > ul > li > ul > li {
 	margin-top: 3px;
 }
 
 /* ---------- Tech summary line ---------- */
-.resume-v2 .tech-summary {
+.resume-v3 .tech-summary {
 	font-size: 8.5pt;
 	color: #555;
 	line-height: 1.6;
 	margin-top: 4px;
+}
+
+.resume-v3 .experience .project-head .link-icon {
+	/* background-color: #e6edf5;
+	color: #1e3a5f;
+	padding: 2px 4px;
+	font-size: 8pt;
+	border-radius: 50%; */
+}
+
+.resume-v3 .experience .project-head .link-icon:hover {
+	cursor: pointer;
+	text-decoration: underline;
 }
