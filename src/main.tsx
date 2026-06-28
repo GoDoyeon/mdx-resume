@@ -4,6 +4,7 @@ import ReactDOM from 'react-dom/client'
 import './css/custom_2.css'
 import OriginalResume from './resume.mdx'
 import MyResume3 from './dy/resume_3.mdx'
+import MyResume4 from './dy/resume_4.mdx'
 import MyResume2 from './dy/resume_2.mdx'
 import MyWorkExperience2 from './dy/workExperience_2_성과중심.mdx'
 // import MyWorkExperience2 from './dy/workExperience_2.mdx'
@@ -26,6 +27,10 @@ const router = createBrowserRouter([
 	{
 		path: '/resume3',
 		element: <MyResume3 />,
+	},
+	{
+		path: '/resume4',
+		element: <MyResume4 />,
 	},
 	// 내 경력기술서
 	{
